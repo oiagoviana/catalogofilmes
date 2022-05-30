@@ -21,21 +21,26 @@ select id_usuario		id,
 
 
 -- CASO DE USO 02(CSU02):: cadastrar novo filme
-INSERT INTO tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel, img_filme)
-	 VALUES (1, 'Harry Potter e a Camara Secreta', 'Filme bem Tops', 8.2, '2012-02-11', true, '/storage/filmes/3929325.jpg');
+INSERT INTO tb_filme(id_usuario, nm_filme, ds_sinopse, vl_avaliacao, dt_lancamento, bt_disponivel)
+	 VALUES (1, 'Harry Potter e a Camara Secreta', 'Filme bem Tops', 8.2, '2012-02-11', true);
+
+
+-- CASO DE USO 02.1(CSU02.1):: alterar a imagem
+UPDATE tb_filme
+   SET img_filme         = '/storage/filme/dsadsa.jpg'
+ WHERE id_filme = 1;      
      
 
 
 
 -- CASO DE USO 03(CSU03):: alterar filme
 UPDATE tb_filme
-   SET nm_filme		 ='Harry Potter e a Pedra Filosofal',
+   SET nm_filme	 ='Harry Potter e a Pedra Filosofal',
 	   ds_sinopse	 ='Filme Bem legal',
        vl_avaliacao  ='9.5',
        dt_lancamento ='2010-05-03',
        bt_disponivel =true,
-       img_filme	 ='/storage/filme/dsadsad.jpg'
- WHERE id_filme		 =1;
+ WHERE id_filme	 =1;
 
 
 
@@ -47,8 +52,8 @@ DELETE FROM tb_filme
 
 
 -- CASO DE USO 05(CSU05):: consultar todos os filmes
-SELECT id_filme			id,
-	   nm_filme			nome,
+SELECT id_filme		id,
+	   nm_filme		nome,
        vl_avaliacao		avaliacao,
        ds_sinopse		sinopse,
        dt_lancamento	lancamento,
@@ -58,8 +63,8 @@ SELECT id_filme			id,
   
 
 -- CASO DE USO 06(CSU06):: consultar filmes por nome
-SELECT id_filme			id,
-	   nm_filme			nome,
+SELECT id_filme		id,
+	   nm_filme		nome,
        vl_avaliacao		avaliacao,
        dt_lancamento	lancamento,
        bt_disponivel	disponivel
@@ -70,12 +75,12 @@ SELECT id_filme			id,
 
 
 -- CASO DE USO 07(CSU07):: consultar filmes por id
-SELECT id_filme			Id,
-	   nm_filme			Nome,
-       vl_avaliacao		Avaliacao,
-       ds_sinopse		Sinopse,
-       dt_lancamento	Lancamento,
-       bt_disponivel	Disponivel,
+SELECT id_filme		id,
+	   nm_filme		nome,
+       vl_avaliacao		avaliacao,
+       ds_sinopse		sinopse,
+       dt_lancamento	lancamento,
+       bt_disponivel	disponivel,
        img_filme 		capa
   FROM tb_filme
  WHERE id_filme			= 1;
